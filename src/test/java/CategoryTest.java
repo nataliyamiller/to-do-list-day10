@@ -30,4 +30,17 @@ public class CategoryTest {
     assertTrue(Category.all().contains(firstCategory));
     assertTrue(Category.all().contains(secondCategory));
   }
+
+  @Test
+  public void clear_removesAllCategoryInstancesFromMemory() {
+    Category testCategory = new Category("Home");
+    Category.clear();
+    assertTrue(Category.all().size() == 0);
+  }
+
+  @Test
+  public void find_returnsCategoryWithSameId() {
+    Category testCategory = new Category("Home");
+    assertEquals(Category.find(testCategory.getId()), testCategory);
+  }
 }
