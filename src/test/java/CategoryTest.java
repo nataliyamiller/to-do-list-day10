@@ -43,4 +43,12 @@ public class CategoryTest {
     Category testCategory = new Category("Home");
     assertEquals(Category.find(testCategory.getId()), testCategory);
   }
+
+  @Test
+  public void addTask_addsTaskToList() {
+    Category testCategory = new Category("Home");
+    Task testTask = new Task("Buy groceries");
+    testCategory.addTask(testTask);
+    assertTrue(testCategory.getTasks().contains(testTask));
+  }
 }
