@@ -12,8 +12,22 @@ public class CategoryTest {
   }
 
   @Test
-  public void getId_returnsName_true() {
+  public void getId_returnsCategoryId() {
     Category testCategory = new Category("Home");
     assertTrue(testCategory.all().size() == testCategory.getId());
+  }
+
+  @Test
+  public void getTasks_initiallyReturnsEmptyArrayList() {
+    Category testCategory = new Category("Home");
+    assertTrue(testCategory.getTasks() instanceof ArrayList);
+  }
+
+  @Test
+  public void all_returnsAllInstancesOfTask_true() {
+    Category firstCategory = new Category("Home");
+    Category secondCategory = new Category("Garden");
+    assertTrue(Category.all().contains(firstCategory));
+    assertTrue(Category.all().contains(secondCategory));
   }
 }
